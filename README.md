@@ -12,16 +12,30 @@ To launch the API, run (in the `src` folder):
 uv run fastapi dev
 ```
 
-To predict the cluster for an "average" penguin, use:
+Open API documentation is available at `/docs`.
+
+We can consider the specification for an "average" penguin to be:
+
+```json
+[
+  {
+    "flipperLength": 201.5,
+    "billLength": 45.4,
+    "billDepth": 17.3
+  }
+]
+```
+
+To predict the cluster for a new penguin, use:
 
 ```
 curl -X "POST" "http://localhost:8000/" \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'[
   {
-    "flipperLength": "201.5",
-    "billLength": "45.4",
-    "billDepth": "17.3"
+    "flipperLength": 201.5,
+    "billLength": 45.4,
+    "billDepth": 17.3
   }
 ]'
 ```
